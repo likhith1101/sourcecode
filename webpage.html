@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .det {
+            width: 320px;
+            padding: 10px;
+            border: 5px solid gray;
+            text-align: center;
+        }
+
+        .details {
+            margin-left: 20px;
+        }
+
+        .details h1, .details h2 {
+            margin-bottom: 10px;
+        }
+
+        .details p {
+            line-height: 1.5;
+        }
+
+        button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        #toc {
+            position: fixed;
+            top: 120px;
+            left: 20px;
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Wikipedia</h1>
+        <hr>
+        <img src="Wikipedia-logo-v2.svg.png" width="150" height="100" />
+    </header>
+    
+    <div class="container">
+        <div class="det">
+            <img src="photo.png" width="200" height="200" /><br>
+            <b>Born</b>: Dilshuknagar<br>November 1, 2001 (age 22)<br>Hyderabad, Telangana, India.<br><br>
+            <b>Education:</b> Chaitanya Bharathi Institute Of Technology<br>(Graduated)<br><br>
+            <b>Occupation</b>: Engineer, Trainee, Programmer<br><br>
+            <b>Years active</b>: 2001-present<br><br>
+            <b>Parents</b>: Ramulu<br>Saraswathi<br><br>
+            <b>Linkedin:</b><a href="https://www.linkedin.com/in/likhitheshwargaddam/">linkedin.com</a><br><br>
+            <b>Signature:</b><br><img src="sign.png" width="150" height="50" />
+        </div>
+        
+        <div class="details">
+            <h1>Gaddam Likhitheshwar</h1>
+            <hr>
+            <button onclick="toggleSection('name')">Show/Hide</button>
+            <div id="name" style="display: none;">
+                <p><b>Gaddam Likhitheshwar</b> (born November 1, 2001) is an Indian. He is a software engineer trainee in <a href="https://www.prodapt.com/">Prodapt</a>.</p>
+            </div>
+            
+            <h2>Early Life</h2>
+            <hr>
+            <button onclick="toggleSection('early')">Show/Hide</button>
+            <div id="early" style="display: none;">
+                <p>Likhith was born in Hyderabad, Telangana on November 1, 2001. He is the son of Gaddam Ramulu and Vatnala Saraswathi. His ancestry includes Telugu. His father was a businessman and his mother is a homemaker.</p>
+            </div>
+        </div>
+        
+        <div id="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#name">Gaddam Likhitheshwar</a></li>
+                <li><a href="#early">Early Life</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function toggleSection(sectionId) {
+            var section = document.getElementById(sectionId);
+            if (section.style.display === "none") {
+                section.style.display = "block";
+            } else {
+                section.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
