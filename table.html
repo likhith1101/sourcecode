@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 8px;
+    border: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+</style>
+</head>
+<body>
+
+<h2>Sorting the Table</h2>
+
+<table id="data-table">
+  <tr>
+    <th>
+      Name
+      <button onclick="sortTable(0, true)">asc</button>
+      <button onclick="sortTable(0, false)">dsc</button>
+    </th>
+    <th>
+      Height (cm)
+      <button onclick="sortTable(1, true)">asc</button>
+      <button onclick="sortTable(1, false)">dsc</button>
+    </th>
+    <th>
+      Weight (kg)
+      <button onclick="sortTable(2, true)">asc</button>
+      <button onclick="sortTable(2, false)">dsc</button>
+    </th>
+  </tr>
+  <tr>
+    <td>Prabhas</td>
+    <td>188</td>
+    <td>90</td>
+  </tr>
+  <tr>
+    <td>NTR</td>
+    <td>168</td>
+    <td>65</td>
+  </tr>
+  <tr>
+    <td>Samantha</td>
+    <td>158</td>
+    <td>55</td>
+  </tr>
+  <tr>
+    <td>Kajal</td>
+    <td>160</td>
+    <td>60</td>
+  </tr>
+</table>
+
+<script>
+function sortTable(columnIndex, ascending) {
+  var table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("data-table");
+  switching = true;
+  
+  while (switching) {
+    switching = false;
+    rows = table.rows;
+    
+    for (i = 1; i < (rows.length - 1); i++) {
+      shouldSwitch = false;
+      
+      x = rows[i].getElementsByTagName("td")[columnIndex];
+      y = rows[i + 1].getElementsByTagName("td")[columnIndex];
+      
+      if (columnIndex === 1 || columnIndex === 2) {
+        x = parseInt(x.innerHTML);
+        y = parseInt(y.innerHTML);
+      } else {
+        x = x.innerHTML.toLowerCase();
+        y = y.innerHTML.toLowerCase();
+      }
+      
+      if ((ascending && x > y) || (!ascending && x < y)) {
+        shouldSwitch = true;
+        break;
+      }
+    }
+    
+    if (shouldSwitch) {
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
+}
+</script>
+
+</body>
+</html>
